@@ -30,6 +30,3 @@ click-left = dbus-spotify prev
 click-middle = dbus-spotify playpause
 click-right = dbus-spotify next
 ```
-
-# TODO
-* Turn into a tail - there's a dbus.Monitor?
