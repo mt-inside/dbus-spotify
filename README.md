@@ -4,7 +4,7 @@ Simple programme that prints info from Spotify over DBus.
 [![Checks](https://github.com/mt-inside/dbus-spotify/actions/workflows/checks.yaml/badge.svg)](https://github.com/mt-inside/dbus-spotify/actions/workflows/checks.yaml)
 [![GitHub Issues](https://img.shields.io/github/issues-raw/mt-inside/dbus-spotify)](https://github.com/mt-inside/dbus-spotify/issues)
 
-[![Go Reference](https://pkg.go.dev/badge/github.com/mt-inside/dbus-spotify//pkg.go.dev/github.com/mt-inside/dbus-spotify)
+[![Go Reference](https://pkg.go.dev/badge/github.com/mt-inside/dbus-spotify.svg)](https://pkg.go.dev/github.com/mt-inside/dbus-spotify)
 
 ## Setup
 * Download [`dbus-spotity`](https://github.com/mt-inside/dbus-spotify/releases/latest/download/dbus-spotify_linux_amd64), `chmod 0755`, and enjoy!
