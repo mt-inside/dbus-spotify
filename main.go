@@ -86,8 +86,8 @@ func getPlaybackStatus(obj dbus.BusObject) string {
 
 func watchPropertiesChanged(conn *dbus.Conn, obj dbus.BusObject) <-chan *dbus.Signal {
 	obj.AddMatchSignal( // Makes a call under the hood, to add a Match rule to this object
-		"org.freedesktop.DBus.Properties",
-		"PropertiesChanged",
+		"org.freedesktop.DBus.Properties", // Interface
+		"PropertiesChanged",               // Member, ie Signal
 	)
 
 	ch := make(chan *dbus.Signal, 10)
