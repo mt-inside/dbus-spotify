@@ -1,6 +1,6 @@
 .PHONY: run
 run:
-	go run ./...
+	go run ./... dump-metadata
 
 .PHONY: check
 check:
