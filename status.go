@@ -21,7 +21,8 @@ func init() {
 }
 
 func (c *statusCmd) Execute(args []string) error {
-	obj := getDBusObj()
+	conn := getDBusSessionConnection()
+	obj := getDBusObj(conn)
 	fmt.Println(getPlaybackStatus(obj))
 
 	return nil

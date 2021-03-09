@@ -17,7 +17,8 @@ func init() {
 }
 
 func (c *playpauseCmd) Execute(args []string) error {
-	obj := getDBusObj()
+	conn := getDBusSessionConnection()
+	obj := getDBusObj(conn)
 	call := obj.Call(
 		"org.mpris.MediaPlayer2.Player.PlayPause", // Method
 		0, // Flags

@@ -17,7 +17,8 @@ func init() {
 }
 
 func (c *prevCmd) Execute(args []string) error {
-	obj := getDBusObj()
+	conn := getDBusSessionConnection()
+	obj := getDBusObj(conn)
 	call := obj.Call(
 		"org.mpris.MediaPlayer2.Player.Previous", // Method
 		0,                                        // Flags

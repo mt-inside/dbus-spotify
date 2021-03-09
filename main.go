@@ -29,13 +29,17 @@ func main() {
 	}
 }
 
-func getDBusObj() dbus.BusObject {
+func getDBusSessionConnection() *dbus.Conn {
 	conn, err := dbus.SessionBus()
 	if err != nil {
 		panic(err)
 	}
 	// defer conn.Close() - static lifetime
 
+	return conn
+}
+
+func getDBusObj(conn *dbus.Conn) dbus.BusObject {
 	obj := conn.Object(
 		"org.mpris.MediaPlayer2.spotify", // bus address
 		"/org/mpris/MediaPlayer2",        // object path

@@ -19,7 +19,8 @@ func init() {
 }
 
 func (c *metadataCmd) Execute(args []string) error {
-	obj := getDBusObj()
+	conn := getDBusSessionConnection()
+	obj := getDBusObj(conn)
 	spew.Dump(getMetadata(obj))
 
 	return nil
