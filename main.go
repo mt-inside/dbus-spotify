@@ -47,13 +47,14 @@ func getDBusObj() dbus.BusObject {
 func getMetadata(obj dbus.BusObject) map[string]interface{} {
 	var metadata map[string]interface{}
 
-	err := obj.Call(
-		"org.freedesktop.DBus.Properties.Get", // Method
-		0,                                     // Flags
-		// Args (to ...Get)...
-		"org.mpris.MediaPlayer2.Player", // Interface
-		"Metadata",                      // Property
-	).Store(&metadata)
+	variant, err := obj.GetProperty(
+		"org.mpris.MediaPlayer2.Player.Metadata", // Interface.Property
+	)
+	if err != nil {
+		panic(err)
+	}
+
+	err = dbus.Store([]interface{}{variant}, &metadata)
 	if err != nil {
 		panic(err)
 	}
@@ -64,13 +65,14 @@ func getMetadata(obj dbus.BusObject) map[string]interface{} {
 func getPlaybackStatus(obj dbus.BusObject) string {
 	var status string
 
-	err := obj.Call(
-		"org.freedesktop.DBus.Properties.Get", // Method
-		0,                                     // Flags
-		// Args (to ...Get)...
-		"org.mpris.MediaPlayer2.Player", // Interface
-		"PlaybackStatus",                // Property
-	).Store(&status)
+	variant, err := obj.GetProperty(
+		"org.mpris.MediaPlayer2.Player.PlaybackStatus", // Interface.Property
+	)
+	if err != nil {
+		panic(err)
+	}
+
+	err = dbus.Store([]interface{}{variant}, &status)
 	if err != nil {
 		panic(err)
 	}
