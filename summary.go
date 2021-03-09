@@ -60,7 +60,10 @@ func (c *watchCmd) Execute(args []string) error {
 	var unknown []string
 
 	for s := range sigs {
-		dbus.Store(s.Body, &iface, &props, &unknown) // Have to use Store(), because it's Variants all the way down (props, props["Metadata"]), and Store() unpacks those so we don't have to keep going through .Value()
+		err := dbus.Store(s.Body, &iface, &props, &unknown) // Have to use Store(), because it's Variants all the way down (props, props["Metadata"]), and Store() unpacks those so we don't have to keep going through .Value()
+		if err != nil {
+			panic(err)
+		}
 		status := props["PlaybackStatus"].(string)
 		metadata := props["Metadata"].(map[string]interface{})
 
